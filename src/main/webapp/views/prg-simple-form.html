@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple form</title>
+</head>
+<body>
+<h1>Registration</h1>
+<form th:action="@{/prg/save}" th:object="${user}" method="post">
+
+
+    <div>
+        <label for="username">Username</label>
+        <input id="username" th:field="*{username}"/>
+    </div>
+
+    <div>
+        <label for="email">E-mail</label>
+        <input id="email" th:field="*{email}"/>
+    </div>
+    <div>
+        <label for="user-birth-date">Date of birth:</label>
+        <input type="date" th:field="*{birthday}" id="user-birth-date"/>
+    </div>
+
+    <button type="submit">Save user</button>
+</form>
+</body>
+</html>

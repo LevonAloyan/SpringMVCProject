@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/submitResults}" th:object="${results}" method="post">
+
+    <ul>
+        <li th:each="question : ${questions}">
+            <div><span th:text="${question.question}"></span></div>
+            <input type="hidden" th:field="*{result__${question.id}__.questionId}" th:value="*{__${question.id}__}">
+            <ul>
+                <li th:each="answer : ${question.answers}">
+                    <input type="radio" th:id="${answer.id}" th:field="*{result__${question.id}__.answerId}" th:value="${answer.id}"/>
+                    <label th:for="${answer.id}" th:text="${answer.answer}"></label>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+<button type="submit">Submit result</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>I18n example</title>
+</head>
+<body>
+<h1 th:text="#{greeting}"></h1>
+<span th:text="#{lang.change}"></span>:
+<div>
+    <a href="/i18n-example?lang=en_US" th:text="#{language.en}"></a>
+    <a href="/i18n-example?lang=hy_AM" th:text="#{language.arm}"></a>
+</div>
+</body>
+</html>

@@ -10,6 +10,7 @@
     <mvc:annotation-driven/>
 
     <bean id="templateResolver" class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+        <property name="characterEncoding" value="UTF-8"/>
         <property name="prefix" value="/views/"/>
         <property name="suffix" value=".html"/>
     </bean>
@@ -21,8 +22,32 @@
 
     <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="contentType" value="text/html; charset=UTF-8"/>
         <property name="order" value="1"/>
         <property name="viewNames" value="*"/>
+    </bean>
+
+
+    <!--   Use ResourceBundleMessageSource Achieving Internationalized Resources-->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basenames" value="messages"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="en_US"/>
+    </bean>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+            <property name="paramName" value="lang"/>
+        </bean>
+    </mvc:interceptors>
+
+
+    <!-- Upload file interception, set the maximum upload file size 10M=10*1024*1024(B)=10485760 bytes -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="maxUploadSize" value="10485760"/>
     </bean>
 
 </beans>
