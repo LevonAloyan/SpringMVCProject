@@ -3,7 +3,6 @@ package com.epam.demo.thymeleaf;
 import java.util.List;
 
 public class Results {
-
     private Result result0;
     private Result result1;
     private Result result2;

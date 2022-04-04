@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Registration</h1>
-<form th:action="@{/user/save}" th:object="${user}" method="post">
+<form th:action="@{/person/save}" th:object="${person}" method="post">
 
 
     <div>
@@ -19,11 +19,11 @@
         <input id="email" th:field="*{email}"/>
     </div>
     <div>
-        <label for="user-birth-date">Date of birth:</label>
-        <input type="date" th:field="*{birthday}" id="user-birth-date"/>
+        <label for="person-birth-date">Date of birth:</label>
+        <input type="date" th:field="*{birthday}" id="person-birth-date"/>
     </div>
 
-    <button type="submit">Save user</button>
+    <button type="submit">Save person</button>
 </form>
 </body>
 </html>
