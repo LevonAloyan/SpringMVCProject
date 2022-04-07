@@ -3,13 +3,15 @@ package com.epam.demo.validation.beanvalidation;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class Person {
     private int id;
-    @SpecialNameConstraint
+    @NotBlank(message = "{name.empty}")
     private String name;
-    @Min(value = 0, message = "{negativevalue}")
-    @Max(value= 110, message = "{to.darn.old}")
+    @Min(value = 0, message = "{negative.value}")
+    @Max(value= 110, message = "{too.darn.old}")
     private int age;
 
     public int getId() {
@@ -18,6 +20,7 @@ public class Person {
 
     public void setId(int id) {
         this.id = id;
+        throw new RuntimeException("Ha ha ha");
     }
 
     public String getName() {

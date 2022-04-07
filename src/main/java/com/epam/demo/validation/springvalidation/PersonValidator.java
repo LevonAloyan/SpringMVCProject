@@ -18,7 +18,7 @@ public class PersonValidator implements Validator {
             ValidationUtils.rejectIfEmpty(errors, "name", "name.empty");
             Person p = (Person) target;
             if (p.getAge() < 0) {
-                errors.rejectValue("age", "negativevalue");
+                errors.rejectValue("age", "negative.value");
             } else if (p.getAge() > 110) {
                 errors.rejectValue("age", "too.darn.old");
             }
