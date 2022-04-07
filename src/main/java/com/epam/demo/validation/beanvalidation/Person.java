@@ -14,6 +14,14 @@ public class Person {
     @Max(value= 110, message = "{too.darn.old}")
     private int age;
 
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public Person() {
+    }
+
     public int getId() {
         return id;
     }

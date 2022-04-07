@@ -1,0 +1,11 @@
+AOP - aspect oriented programming
+
+AspectJ
+
+cross-cutting functionality
+
+Advice
+
+PointCut
+
+JoinPoint
